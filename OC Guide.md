@@ -22,6 +22,7 @@ In-depth reference for pushing DDR5 memory. Timing & voltage tables and theory.
 
 - [Baseline Memory OC](#baseline-memory-oc)
 - [Overclocking](#overclocking)
+- [Voltages](#voltages)
 - [Voltage and Timing Ranges](#voltage-and-timing-ranges)
 
 </details>
@@ -229,25 +230,6 @@ Local Regulator"]
     IVR --> PHYOUT["PHY Output Drivers
 (CA/DQ/DQS/CK)"]
 
-
-<details>
-<summary>Raw ASCII version (for unrendered viewing)</summary>
-
-text
-MOTHERBOARD VRM(s)
-       │
-       ├──> DIMM 5V/12V input ──> [ON-DIMM PMIC] ──> VDD  (DRAM core)
-       │                                          └──> VDDQ (DRAM I/O)
-       │
-       ├──> VCCSA / VDD2 pins ──> [CPU SA domain] ──> IMC logic, training engines
-       │                                           └──> VDD2 / IMC Voltage
-       │
-       └──> PHY TX supply pins ──> [CPU IVR / local reg] ──> IVR VDDQ TX
-                                                          └──> PHY output drivers (CA/DQ/DQS/CK)
-
-
-</details>
-
 **Signal flow:**
 
 | Path | Flow |
@@ -331,7 +313,7 @@ tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes
 - Proper DDR5 OC is complex because you have to validate across multiple states: cold boots, warm boots, retrains after failed training, and stress tests. This is why it may take months before you land on your "final" overclock.
 - Every stress test/benchmark uses a different workload. Some may have mixed workloads, but real-world apps/games load your system in a very dynamic and heavy way — this is why you might pass some stress tests but still get random crashes.
 
-### Best Practices
+### Tips
 
 - Log every change you make with notes by hand.
 - Increment one atomic step at a time.
@@ -347,7 +329,7 @@ tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes
 ## Voltage and Timing Ranges
 
 > [!NOTE]
-> These ranges will vary depending on hardware/frequency/cooling solution/etc. They're a general idea of what's typical and when you're approaching certain voltage/timing limits — marked as a to-do in the source guide.
+> These ranges will vary depending on hardware/frequency/cooling solution/etc. They're a general idea of what's typical and when you're approaching certain voltage/timing limits.
 
 ### Voltage Ranges
 
