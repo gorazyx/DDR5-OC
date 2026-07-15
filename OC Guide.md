@@ -42,7 +42,7 @@ In-depth reference for pushing DDR5 memory.
 | ICCMAX | 400A | Prevent degrading. |
 | IA VR Voltage Limit | 1600mV | Prevent degrading. |
 | VCCSA | 1.15V | Needs full train + cold boot when changing in big steps. Adjust VCCSA in 5mV steps to find the sweet-spot for 8000+ MT/s. |
-| VDD/VDDQ | 1.45/1.45V | Puts PMIC in OC-Mode (1.425V+ → different thermal management + voltage deltas). |
+| VDD/VDDQ | 1.45/1.45V | Puts PMIC in OC-Mode (In OC-Mode (1.425V+) PMIC has different thermal management + voltage ripple). |
 | IVR VDDQ TX | 1.20V | Needs a sweet spot; optimal value depends on board/CPU/DIMM quality and IC type (A-Die vs M-Die). |
 | XMP | XMP I | |
 | Gear Mode | 2 | |
@@ -56,14 +56,14 @@ In-depth reference for pushing DDR5 memory.
 |---|---|---|
 | tCL | 38 | 36 when pushing higher VDD (1.55V+) at 8000+. Requires proper cooling. |
 | tRCD | 54 | tRCD is the hardest of the primaries to stabilize. |
-| tRCDWR | 54 | Unlike tRCD (read), tRCDWR can usually be floored to the register limit. |
+| tRCDWR | 54 | Try tRCD - 4 |
 | tRP | 54 | tRP can often go a bit lower than tRCD, but keep tRCD=tRP at first. |
-| tRAS | 82 | Set tRAS = tRCD + tRTP + 4. |
+| tRAS | 82 | Set tRAS = tRCD + tCL. |
 | Command Rate | 2N | |
 | tREFI | 32767 | Very temperature sensitive. You need proper cooling to push tREFI to 65535 and above. |
 | tRFC / tRFC1 / tRFC2 | 800 | Latency (ns) = tRFC * 2000 / Data Rate. M-Die floor is much higher than A-Die floor because of density — 160ns for A-Die / 190ns for M-Die. |
 | tRFCpb / tRFCsb | 672 | Can set to tRFC - 30ns. |
-| tWR | 72 | Don't floor this one too hard. Most firmware sets 48 as the limit, but APEX can set it to 24. These are way too tight anyway. |
+| tWR | 72 | Don't floor this one. Most firmware sets 48 as the limit, but APEX can set it to 24. These are way too tight anyway. |
 | tRRD_L | 12 | 8 as floor for M-Die. 4 can be tested for A-Die. |
 | tRRD_S | 8 | 8 as floor for M-Die. 4 can be tested for A-Die. |
 | tWTR_S | 8 | 4 as the absolute floor; can go as low as 2. |
@@ -299,43 +299,44 @@ tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes
 > [!NOTE]
 > These ranges will vary depending on hardware/frequency/cooling solution/etc. They're a general idea of what's typical and when you're approaching certain voltage/timing limits.
 
-### Voltage Ranges
+# Voltage Limits
 
-| Rail | Range | Notes |
-|---|---|---|
-| VDD (DRAM core) | 1.45–1.65V | 1.55V+ needs active cooling. 1.60V+ needs even more exotic cooling, like water-cooling. |
-| VDDQ (DRAM I/O) | 1.45–1.60V | Especially at higher VDD (1.55V+), it makes sense to leave VDDQ at least 50mV or more below VDD. |
-| VDD2 (IMC/CPU) | 1.45–1.60V | Very important rail for training/booting. |
-| IVR VDDQ TX (CPU) | 1.20–1.45V | Above 8200+ especially, this voltage becomes interesting for signal integrity. Has a sweet spot. |
-| VCCSA (SA) | 1.15–1.30V | Very fine sweet spot above 8200+. 1.20V might train sometimes, 1.24V might train excellent, 1.27V might regress again. |
-| VPP (wordline boost) | 1.70–2.00V | Only change from 1.80V if all other voltages didn't help and you're certain the limit is row-activation related. |
+| Voltage Rail | Safe | Air | Advanced | Notes |
+|---|---|---|---|---|
+| VDD (DRAM) | 1.50V | 1.55V | 1.65V+ | Most important rail to push. |
+| VDDQ (DRAM) | 1.50V | 1.55V | 1.60V | At higher VDD (1.55V+), keep VDDQ at least 50mV below VDD. |
+| VDD2/IMC Voltage (CPU) | 1.50V | 1.55V | 1.60V+ | Critical rail for training/booting. |
+| IVR VDDQ TX (CPU) | 1.25V | 1.35V | 1.40V | Becomes relevant for signal integrity above 8200+ MT/s. Has a sweet spot. |
+| VCCSA (CPU) | 1.20V | 1.25V | 1.30V | Very fine sweet spot above 8200+. Small increments (5-10mV) matter. 1.35V+ easily degrades the IMC. |
+| VPP | 1.80V | 1.90V | 2.00V | Only adjust if all other rails are tuned and the limit is clearly row-activation related. |
 
-### Primaries Range
+# Primary Timings
 
-| Timing | Range | Notes |
-|---|---|---|
-| tCL | 24–42 | Scales very well with increased VDD. Can go much lower than tRCD and tRP. |
-| tRCD | ??–54 | By far one of the biggest bottlenecks at higher frequencies. If stuck, try adjusting in this order: VDD → IMC/VDD2 → VDDQ → IVR VDDQ TX → VPP. |
-| tRCDWR | ??–54 | Can drop further. |
-| tRP | ??–54 | |
-| tRAS | ??–80 | |
-| tRC | — | |
-| tCWL | 26–42 | |
-| Command Rate | 1–2 | |
+| Timing | Safe | Tight | XOC | Notes |
+|---|---|---|---|---|
+| tCL | 9.5ns | 9ns| 8ns | Scales well with VDD. Can go lower than tRCD/tRP. |
+| tRCD | 13ns | 12.5ns | 12ns | Will insanely bottleneck. |
+| tRCDWR | 11ns | 10.5ns | 10ns | |
+| tRP | 12.5 | 12ns | 11.5ns | |
+| tRAS | tRCD + tCL + 2 | tRCD + tCL4 | tRCD + tCL | |
+| tRC | tRAS + tRP | tRAS + tRP | tRAS + tRP | |
+| tCWL | tCL | tCL − 2 | tCL − 4 | |
+| Command Rate | 2N | 2N | 2N | 1N is only a thing way below 7000 MT/s. |
 
-### Secondaries Range
+# Secondary Timings
 
-| Timing | Range | Notes |
-|---|---|---|
-| tRFC (tRFC1, tRFC2) | 160–400 ns | 160ns floor for A-Die, 190ns floor for M-Die. Many go lower, but it's a risk below that point. |
-| tRFCsb (= tRFCpb) | 130–205 ns | Roughly tRFC - 30ns. |
-| tREFI | 32767–131071 | Not recommended to go above 65535 without a strong reason. |
-| tRRD_S | 04–12 | 4 is very extreme. |
-| tRRD_L | 04–12 | |
-| tFAW | 16–48 | |
-| tWTR_S | ??–24 | |
-| tWTR_L | ??–64 | |
-| tRTP | 12–32 | |
+| Timing | Safe | Tight | XOC | Notes |
+|---|---|---|---|---|
+| tRFC1/tRFC2 | 400ns | 240ns | 160-200 ns | 200ns for M-Die because of density. |
+| tRFCsb (tRFCpb) | 300ns | 200 ns | 130-170ns | Roughly tRFC − 30 ns as a baseline. |
+| tREFI | 32767 | 32767 | 65535 | I recommend staying below 65535. |
+| tRRD_S | 12 | 8 | 4 | |
+| tRRD_L | 12 | 12 | 8 | |
+| tFAW | 48 | 32 | 16 | Must stay ≥ 4*tRRD_S. |
+| tWTR_S | 12 | 8 | 4 | |
+| tWTR_L | 32 | 24 | 8 | |
+| tRTP | 24 | 12 | 12 | |
+
 
 ### Tertiaries
 
