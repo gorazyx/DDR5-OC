@@ -128,7 +128,7 @@ Reference for pushing DDR5 memory.
 ### Overclocking Procedure
 
 > [!IMPORTANT]
-> Always aim to change only **one variable at a time**. The actual overclocking process is boring, repetitive, and takes a long time. If you are serious about overclocking, approach it step-by-step like this — otherwise you'll spend months on your OC and learn nothing without any progress.
+> Only change **one variable at a time**. Overclocking is boring, repetitive, and takes a long time. If you want the best results fastest, approach it step-by-step.
 
 **Step 1 — Push frequency**
 1. Push frequency.
@@ -153,7 +153,7 @@ Reference for pushing DDR5 memory.
 2. Increase VDD if there is headroom.
 3. Repeat until you either can't POST or can't stabilize a specific timing.
 
-**Step 5 — Finalize**
+**Step 5 — Final**
 1. Repeat the steps from before, depending on what your goal is.
 2. If you are stuck, start adjusting IVR VDDQ TX, VCCSA, and VDD2/IMC Voltage individually 
 3. Once you are satisfied with your overclock, run every stress test for as long as reasonable.
