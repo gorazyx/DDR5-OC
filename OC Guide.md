@@ -4,7 +4,7 @@
 # Intel DDR5 Overclocking Guide
 
 > [!WARNING]
-> This guide is still in its early phase. Additions or corrections are appreciated, contact me on Discord @gorazyx
+> This guide is still in its early phase. Additions or corrections are appreciated, contact me on Discord gorazyx.
 
 In-depth reference for pushing DDR5 memory. Timing & voltage tables and theory.
 
