@@ -7,8 +7,12 @@ In-depth reference for pushing DDR5 memory.
 
 
 </div>
-![Status](https://img.shields.io/badge/Status-Work%20in%20Progress-yellow)
+
+
+
 <br/>
+
+![Status](https://img.shields.io/badge/Status-Work%20in%20Progress-yellow)
 
 > [!CAUTION]
 > This guide pushes DRAM and platform voltages above default specification. Pushing SA or DRAM voltage too far can degrade your IMC or DIMMs over time. Even staying within the ranges in [Voltage and Timing Ranges](#voltage-and-timing-ranges) does not guarantee absolute safety.
