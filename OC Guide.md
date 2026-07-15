@@ -31,19 +31,19 @@ Reference for pushing DDR5 memory.
 
 | Setting | Value | Notes |
 |---|---|---|
-| CPU Core/Ring Ratio | 47/44 | Remove CPU OC instability as a variable at first. |
-| VRM VCore/SVID VCore/SVID Cache | 1.20V | Final OC should not exceed 1.35V because of degradation. |
-| Load-Line | LLC6 | LLC8 (no vdroop) if properly cooled. |
+| CPU Core/Ring Ratio | 47/44 | |
+| VRM VCore/SVID VCore/SVID Cache | 1.20V | Degradation above 1.35V. |
+| Load-Line | LLC6 | LLC8 if properly cooled. |
 | Unlimited ICCMAX | Disabled | |
 | ICCMAX | 400A | |
 | IA VR Voltage Limit | 1600mV | |
-| VCCSA | 1.15V | Needs full train + cold boot when changing in big steps. Adjust VCCSA in 5mV steps to find the sweet-spot for 8000+ MT/s. |
-| VDD/VDDQ | 1.45/1.45V | Puts PMIC in OC-Mode (In OC-Mode (1.425V+) PMIC has different thermal management + voltage ripple). |
-| IVR VDDQ TX | 1.20V | Needs a sweet spot; optimal value depends on board/CPU/DIMM quality and IC type (A-Die vs M-Die). |
+| VCCSA | 1.15V | Adjust VCCSA in 5mV steps above 8000+ MT/s. |
+| VDD/VDDQ | 1.45/1.45V | |
+| IVR VDDQ TX | 1.20V | Adjust in 5mV steps above 8000+ MT/s. Disable Vddq Training |
 | XMP | XMP I | |
 | Gear Mode | 2 | |
-| DRAM Reference Clock Ratio | Auto | Changing this from anything but Auto bugs training and needs a full CMOS reset. You can set 100:100 but never change it again. |
-| Maximus Tweak | Mode 2 | Trains Auto timings more aggressively. Mode 1 trains for compatibility. |
+| DRAM Reference Clock Ratio | Auto | Changing this from Auto after setting frequency bugs training. You can set 100:100 but never change it again. |
+| Maximus Tweak | Mode 2 | Mode 2 trains more aggressive. Mode 1 trains compatible. |
 | DRAM Frequency | 7200 | |
 
 ### Timings
@@ -56,24 +56,24 @@ Reference for pushing DDR5 memory.
 | tRP | 54 | Keep tRCD=tRP at first. |
 | tRAS | 82 | Set tRAS = tRCD + tRTP + 4. |
 | Command Rate | 2N | |
-| tREFI | 32767 | Very temperature sensitive. |
-| tRFC / tRFC1 / tRFC2 | 800 | Latency (ns) = tRFC * 2000 / Data Rate. Set to 200ns |
-| tRFCpb / tRFCsb | 680 | Set to tRFC - 30ns. |
-| tWR | 72 | Most firmware sets 48 as the floor, on the z790 APEX you can program 24. |
+| tREFI | 32767 | |
+| tRFC / tRFC1 / tRFC2 | 200ns | Latency = tRFC * 2000 / Data Rate. |
+| tRFCpb / tRFCsb | 170ns | Set to tRFC - 30ns. |
+| tWR | 72 | 48 floor. APEX can program 24. |
 | tRRD_L | 12 | |
 | tRRD_S | 8 | |
 | tWTR_S | 8 | |
 | tWTR_L | 24 | |
-| tRTP | 24 | 12 is the absolute floor for DDR5. |
-| tFAW | 48 | Aim for 32. 16 is worth trying on A-Die. |
-| tCWL | 36 | tCWL = tCL - 2. Can go lower, e.g. tCWL = tCL - 4. Also changes timing rules for tWRRD_SG/DG. |
+| tRTP | 24 | 12 is floor for DDR5 |
+| tFAW | 48 | 32 floor for M-Die. Try 16 floor on A-Die. |
+| tCWL | 36 | tCWL affects tWRRD_SG/DG. |
 | tRDRD_SG | 16 | |
 | tRDRD_DG | 8 | |
 | tRDWR_SG | 21 | 22 if 8400+ |
 | tRDWR_DG | 21 | 22 if 8400+ |
-| tWRRD_DG | Auto | Leave Auto and let the board train via tWTR_S. If your board cannot directly change tWTR_S, set tWTR_S Auto and reduce tWRRD_DG until you hit the tWTR_S target. |
-| tWRRD_SG | Auto | Leave Auto and let the board train via tWTR_L. If your board cannot directly change tWTR_S, set tWTR_L Auto and reduce tWRRD_SG until you hit the tWTR_L target. |
-| tWRWR_SG | 16 | 32, 38, 40 can be tested depending on other timings — only for fine-tuning at the end. |
+| tWRRD_DG | Auto | Leave Auto and let the board train via tWTR_S. |
+| tWRRD_SG | Auto | Leave Auto and let the board train via tWTR_L. |
+| tWRWR_SG | 16 | |
 | tWRWR_DG | 8 | |
 
 ### Advanced Voltages Tab
@@ -103,21 +103,19 @@ Reference for pushing DDR5 memory.
 
 | Setting | Value | Notes |
 |---|---|---|
-| Memory Context Restore | Disabled | Higher training times, but worth it. |
-| DDR Runtime Training Reduction | Disabled | Higher training times, but worth it. |
+| Memory Context Restore | Disabled | Enable it after finishing your OC. |
+| DDR Runtime Training Reduction | Disabled | Higher training times for better training. |
 | BankSwapMode | Swap APU | |
 | Latency Under Load | Disabled | |
 | Nitro | 1/2/0 for 1:1 | 1/3/1 for 2:1 |
 
 <p align="right"><a href="#top">Back to top</a></p>
 
----
-
 <a id="overclocking"></a>
 ## Overclocking
 
 ### Stress Tests
-| Stress test | Time to run |
+| Stress test | Time |
 |---|---|
 | y-cruncher VST/VT3 | 2-4 hours |
 | Karhu | 400%+ coverage |
@@ -125,57 +123,55 @@ Reference for pushing DDR5 memory.
 | Memtest86+ | 2 passes |
 | HCI Memtest | 200%+ coverage |
 
-### Overclocking Procedure
+### Example Procedure
 
 > [!IMPORTANT]
-> Only change **one variable at a time**. Overclocking is boring, repetitive, and takes a long time. If you want the best results fastest, approach it step-by-step.
+> Only change **one variable at a time**.
 
-**Step 1 — Push frequency**
+**Step 1 — Frequency**
 1. Push frequency.
 2. Increase VDD/VDDQ if there is headroom.
 3. Repeat until you reach the max frequency you reliably POST.
 3. Stress test for 5-10 minutes of y-cruncher VST. 
 4. Raise VDD/VDDQ if it errors, reduce frequency if no VDD/VDDQ headroom. 
 
-**Step 2 — Tighten primaries**
+**Step 2 — Primaries**
 1. Tighten primaries one at a time.
 2. Increase VDD/VDDQ if there is headroom.
 3. Repeat until you either can't POST or can't stabilize a specific timing.
 4. Adjust or raise VDD/VDDQ or reduce frequency.
 
-**Step 3 — Tighten secondaries**
+**Step 3 — Secondaries**
 1. Tighten secondaries.
 2. Adjust VDD first, then VDD2/IMC Voltage. (VDDQ and IVR VDDQ TX only affect a small subset of secondaries.)
 3. Repeat until you either can't POST or can't stabilize a specific timing.
 
-**Step 4 — Tighten tertiaries** 
+**Step 4 — Tertiaries** 
 1. Tighten tertiaries.
 2. Increase VDD if there is headroom.
 3. Repeat until you either can't POST or can't stabilize a specific timing.
 
-**Step 5 — Final**
+**Step 5 — Finalizing**
 1. Repeat the steps from before, depending on what your goal is.
 2. If you are stuck, start adjusting IVR VDDQ TX, VCCSA, and VDD2/IMC Voltage individually 
 3. Once you are satisfied with your overclock, run every stress test for as long as reasonable.
 
 <p align="right"><a href="#top">Back to top</a></p>
 
----
-
 
 <a id="voltages"></a>
 ## Voltages
 
 > [!TIP]
-> Go overkill on cooling and raise voltages only as much as you *need*.
+> Overkill cooling and raise voltages as much as *needed*.
 
 ### VDD
-Primary supply voltage for the DRAM die. The PMIC generates it on the DIMM. 
+Primary supply voltage for the DRAM die. The PMIC generates it on DIMM. 
 Increasing it helps push higher frequency and almost every timing scales with it.
 Above 1.55V+ you need to ensure proper cooling.
 
 ### VDDQ
-Powers I/O circuitry on the DRAM die. The PMIC generates it on the DIMM. Related to DQ/DQS signal quality. 
+Powers I/O circuitry on the DRAM die. The PMIC generates it on DIMM. Related to DQ/DQS signal quality. 
 Usually fine at VDDQ = VDD up until 1.55V. Depending on ICs and motherboard, a delta (50–100mV) above 1.55V VDD (so 1.50V VDDQ for 50mV delta) helps reduce heat generated on the I/O.
 
 ### VDD2/IMC Voltage
@@ -184,26 +180,23 @@ Push this voltage decently.
 
 ### IVR VDDQ TX
 This rail powers the CPU PHY transmit drivers. It affects CPU write-path signal integrity. 
-Above 7800+ MT/s, CPU PHY drive signal integrity starts becoming a limiting factor — this voltage that directly relates to write-path eye opening. 
-Raising it too much creates signal integrity issues which occur fast starting from 1.25V upwards. The ideal value is a sweet-spot.
+Above 7800+ MT/s, CPU PHY drive signal integrity starts becoming a limiting factor. This voltage that directly relates to write-path eye opening. 
+Raising it too much creates signal integrity issues. Adjust in 5mV steps.
 
 ### VCCSA
 > [!WARNING]
 > Don't overdrive VCCSA. It degrades 13th/14th-gen IMCs quickly.
 
 VCCSA is mainly a supporting rail that affects training and timing initialization. 
-Above 7800+ MT/s, you need to find the sweet-spot or else you might not boot at all.
+Above 7800+ MT/s, adjust in 5mV steps.
 
 <p align="right"><a href="#top">Back to top</a></p>
-
----
 
 <a id="cooling"></a>
 ## Cooling
 
-The rise in resistance of copper is directly proportional to the rise in temperature. High-speed signals want the same resistance across the entire signal path. Any changes in resistance across the path causes a part of the signal to reflect back and add on top of the next signal.
-As frequency increases, reducing noise becomes far more important, because signals become incredibly sensitive to noise.
-Therefore you need especially good cooling to get especially good results, especially on DDR5.
+The resistance of copper is directly proportional to temperature. Signals want the same resistance across the entire signal path. Changes in resistance across the path causes reflections.
+You need especially good cooling to get especially good results, especially on DDR5.
 
 > [!TIP]
 > Point the fan directly at the PMIC so gets direct airflow. This is especially important at high VDD/VDDQ. 
@@ -215,11 +208,11 @@ Therefore you need especially good cooling to get especially good results, espec
 <a id="refresh"></a>
 ## Refresh
 
-DRAM cells leak charge over time and its data need to be periodically refreshed. They leak even faster at higher temperature, so leave a big margin for refresh timings.
+DRAM cells leak charge over time and their data needs to be periodically refreshed. They leak even faster at higher temperature, so leave a big margin for refresh timings.
 
 ### tRFC
 
-tRFC is the duration of the refresh. Just set tRFC1=tRFC2, they mean the same thing. JEDEC just defines tRFC2 as the aggressive spec. tRFCsb/tRFCpb is the refresh duration per bank.
+tRFC is the duration of the refresh. Just set tRFC1=tRFC2. tRFC1 is conservative, while tRFC2 is the aggressive spec. tRFCsb/tRFCpb is the refresh duration per bank.
 Bcause of density, M-Die takes longer for the refresh to finish than A-Die.
 
 **JEDEC reference values** (tRFC1 \| tRFC2 \| tRFCsb):
@@ -232,7 +225,7 @@ Bcause of density, M-Die takes longer for the refresh to finish than A-Die.
 
 ### tREFI
 
-tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes, setting tREFI can get you inconsistent performance or instability. It is very temperature sensitive.
+tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes, misconfiguring tREFI gets you inconsistent performance or instability. It is very temperature sensitive.
 
 > [!TIP]
 > Start with ~32k for tREFI. If you have sufficient cooling, use ~65k. Never go above ~100k.
@@ -243,30 +236,25 @@ tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes
 
 ### Technical Notes
 
-- DDR5's on-die ECC can correct some errors.
-- You are most likely limited by your current CPU bin and/or thermals.
-- DDR5 training is not deterministic — validate thoroughly and retry multiple times.
-- DDR5 is very temperature sensitive, especially at higher speeds and relating to refresh timings.
-- Proper DDR5 OC is complex because you have to validate across multiple states: cold boots, warm boots, retrains after failed training, and stress tests. This is why it may take months before you land on your "final" overclock.
-- Every stress test/benchmark uses a different workload. Some may have mixed workloads, but real-world apps/games load your system in a very dynamic and heavy way — this is why you might pass some stress tests but still get random crashes.
+- DDR5's on-die ECC corrects some errors.
+- You are limited by your current CPU bin and thermals.
+- DDR5 is very temperature sensitive.
+- You need to validate across multiple states: cold boots, warm boots, retrains after failed training, and stress tests. This makes DDR5 OC more complex than DDR4 OC.
 
 ### Tips
 
 - Log every change you make with notes by hand.
 - Increment one atomic step at a time.
-- Save as many OC profiles as possible and name them properly.
+- Save as many OC profiles as possible.
 - Note down Q-codes that happen during training.
-- Validate that the board programmed your timings/BIOS values properly with tools like CPU-Z, HWiNFO, or Intel MRC.
 
 <p align="right"><a href="#top">Back to top</a></p>
-
----
 
 <a id="voltage-and-timing-ranges"></a>
 ## Voltage and Timing Ranges
 
 > [!NOTE]
-> These ranges will vary depending on hardware/frequency/cooling solution/etc. They're a general idea of what's typical and when you're approaching certain voltage/timing limits.
+> These ranges will vary depending on hardware/frequency/cooling solution/etc.
 
 # Voltage Limits
 
