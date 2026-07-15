@@ -165,6 +165,7 @@ Reference for pushing DDR5 memory.
 
 <a id="voltages"></a>
 ## Voltages
+
 > [!TIP]
 > Go overkill on cooling and raise voltages only as much as you *need*.
 
@@ -177,9 +178,9 @@ Above 1.55V+ you need to ensure proper cooling.
 Powers I/O circuitry on the DRAM die. The PMIC generates it on the DIMM. Related to DQ/DQS signal quality. 
 Usually fine at VDDQ = VDD up until 1.55V. Depending on ICs and motherboard, a delta (50–100mV) above 1.55V VDD (so 1.50V VDDQ for 50mV delta) helps reduce heat generated on the I/O.
 
-### VDD2
-A sub-domain of VCCSA (System Agent). This rail powers the digital logic that runs training. 
-Do not undervolt it. Doing so creates issues with training. Push this voltage decently.
+### VDD2/IMC Voltage
+A sub-domain of VCCSA (System Agent). This rail powers the logic that runs training. 
+Push this voltage decently.
 
 ### IVR VDDQ TX
 This rail powers the CPU PHY transmit drivers. It affects CPU write-path signal integrity. 
@@ -188,19 +189,10 @@ Raising it too much creates signal integrity issues which occur fast starting fr
 
 ### VCCSA
 > [!WARNING]
-> Don't overdrive SA voltage. It degrades 13th/14th-gen IMCs quickly and miconfiguring it causes instability.
+> Don't overdrive VCCSA. It degrades 13th/14th-gen IMCs quickly.
 
-VCCSA is mainly a supporting rail that affects memory training and timing calibration/initialization logic. 
+VCCSA is mainly a supporting rail that affects training and timing initialization. 
 Above 7800+ MT/s, you need to find the sweet-spot or else you might not boot at all.
-
-
-Raising voltages helps signals, but creates two main problems:
-
-1. **Heat** changes impedance, which distorts the signal.
-2. **Faster signal edge** create more over- and undershoot.
-
-The first problem is solved with better cooling. 
-The second is solved by increasing termination resistances - but that drops signal strength across the resistance, which creates heat.
 
 <p align="right"><a href="#top">Back to top</a></p>
 
@@ -209,35 +201,26 @@ The second is solved by increasing termination resistances - but that drops sign
 <a id="cooling"></a>
 ## Cooling
 
-The resistance of copper increases directly proportional to temperature increases, which worsens signal integrity. The signal ideally wants the same resistance across the entire signal path — any inconsistency in impedance along the path acts like a "speed bump," and part of the signal reflects back to the source and interferes with the next signal. This reflection ripple adds on top of the signal and distorts it.
-
-At very low frequency, some noise still allows the receiver to differentiate a "1" from a "0" voltage level. As frequency increases, reducing noise becomes far more important, because signals become incredibly sensitive to noise. (The full reason why is outside the scope of this guide.) Key takeaways:
-
-- Cooling is incredibly important.
-- Higher frequencies become very sensitive to even small noise.
-
-You need especially good cooling to get decent results, especially on DDR5.
+The rise in resistance of copper is directly proportional to the rise in temperature. High-speed signals want the same resistance across the entire signal path. Any changes in resistance across the path causes a part of the signal to reflect back and add on top of the next signal.
+As frequency increases, reducing noise becomes far more important, because signals become incredibly sensitive to noise.
+Therefore you need especially good cooling to get especially good results, especially on DDR5.
 
 > [!TIP]
-> For most people, pointing a fan directly at the RAM is enough — make sure the PMIC gets direct airflow, especially at high VDD/VDDQ. It's also worth cooling your CPU via direct-die + liquid metal (make sure you have a decent enough sample to do so). RAM water-cooling also exists.
+> Point the fan directly at the PMIC so gets direct airflow. This is especially important at high VDD/VDDQ. 
+> It's worth cooling your CPU with liquid metal via direct-die. RAM water-cooling also exists.
 
 <p align="right"><a href="#top">Back to top</a></p>
 
----
-
-<div align="center">
-
-</div>
 
 <a id="refresh"></a>
 ## Refresh
 
-DRAM cells leak charge over time and need to be periodically refreshed. They leak even faster at higher temperature, so leave margin when validating to ensure stability.
+DRAM cells leak charge over time and its data need to be periodically refreshed. They leak even faster at higher temperature, so leave a big margin for refresh timings.
 
 ### tRFC
 
-tRFC is the duration of the refresh. tRFC1 can be set to tRFC2 - JEDEC just defines tRFC2 as an aggressive spec, and either tRFC1 or tRFC2 is used. However, tRFCsb/tRFCpb is its own timing.
-A-Die can go much lower with tRFC than M-Die, because of density.
+tRFC is the duration of the refresh. Just set tRFC1=tRFC2, they mean the same thing. JEDEC just defines tRFC2 as the aggressive spec. tRFCsb/tRFCpb is the refresh duration per bank.
+Bcause of density, M-Die takes longer for the refresh to finish than A-Die.
 
 **JEDEC reference values** (tRFC1 \| tRFC2 \| tRFCsb):
 
@@ -249,14 +232,12 @@ A-Die can go much lower with tRFC than M-Die, because of density.
 
 ### tREFI
 
-tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes, setting tREFI is a bit more tricky and you can get inconsistent performance regression or instability. It is also temperature sensitive for the same reason outlined above.
+tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes, setting tREFI can get you inconsistent performance or instability. It is very temperature sensitive.
 
 > [!TIP]
-> Start with ~32000 for tREFI, and only if you have sufficient cooling, try ~65000. It's not worth going above 100k — there's barely any benefit to be had and plenty that can go wrong.
+> Start with ~32k for tREFI. If you have sufficient cooling, use ~65k. Never go above ~100k.
 
 <p align="right"><a href="#top">Back to top</a></p>
-
----
 
 ## Notes
 
