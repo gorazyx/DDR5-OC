@@ -3,8 +3,6 @@
 
 # Intel DDR5 Overclocking Guide
 
-> [!WARNING]
-> This guide is still in its early phase. Additions or corrections are appreciated, contact me on Discord gorazyx.
 
 In-depth reference for pushing DDR5 memory. Timing & voltage tables and theory.
 
@@ -18,6 +16,9 @@ In-depth reference for pushing DDR5 memory. Timing & voltage tables and theory.
 
 > [!CAUTION]
 > This guide pushes DRAM and platform voltages above default specification. Pushing SA or DRAM voltage too far can degrade your IMC or DIMMs over time. Stay within the ranges in [Voltage and Timing Ranges](#voltage-and-timing-ranges), and change **one variable at a time**.
+
+> [!WARNING]
+> This guide is still in its early phase. Additions or corrections are appreciated, contact me on Discord gorazyx.
 
 <details>
 <summary><b>Table of Contents</b></summary>
