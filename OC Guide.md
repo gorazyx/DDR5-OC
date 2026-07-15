@@ -3,8 +3,6 @@
 
 # DDR5 Overclocking Guide
 
-Reference for pushing DDR5 memory.
-
 </div>
 
 <br/>
