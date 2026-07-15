@@ -239,13 +239,8 @@ DRAM cells leak charge over time and need to be periodically refreshed. They lea
 
 ### tRFC
 
-tRFC is the duration of the refresh. tRFC1 can be set to tRFC2 — JEDEC just defines tRFC2 as an aggressive spec, and either tRFC1 or tRFC2 is used. However, you have to set tRFCsb/tRFCpb separately. Make sure SBR is enabled in BIOS.
-
-| Parameter | Description |
-|---|---|
-| tRFC1 | Conservative all-bank refresh (REFab) |
-| tRFC2 | Aggressive all-bank refresh (REFab) |
-| tRFCsb | Per bank-group refresh (REFsb) |
+tRFC is the duration of the refresh. tRFC1 can be set to tRFC2 - JEDEC just defines tRFC2 as an aggressive spec, and either tRFC1 or tRFC2 is used. However, tRFCsb/tRFCpb is its own timing.
+A-Die can go much lower with tRFC than M-Die, because of density.
 
 **JEDEC reference values** (tRFC1 \| tRFC2 \| tRFCsb):
 
@@ -254,10 +249,6 @@ tRFC is the duration of the refresh. tRFC1 can be set to tRFC2 — JEDEC just de
 | 16Gb A-Die | 295 ns | 160 ns | 130 ns |
 | 24Gb M-Die | 410 ns | 220 ns | 205 ns |
 
-**Main takeaways:**
-- A-Die can go much lower with tRFC than M-Die.
-- Only break spec by 10–20% as your limit — going too tight isn't worth the subtle bit-level errors from overtightening.
-- Refreshes are incredibly temperature sensitive. tRFC and tREFI sensitivity cannot be overstated — set them reasonably.
 
 ### tREFI
 
