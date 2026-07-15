@@ -202,40 +202,6 @@ Raising voltages creates stronger signal and let's transistors switch faster, bu
 The first problem is solved with better cooling. 
 The second is solved by increasing termination resistances — but that drops signal strength across the resistance, which creates heat.
 
-### Topology of Voltage Rails
-
-mermaid
-flowchart LR
-    VRM["Motherboard VRM(s)"]
-
-    VRM --> DIN["DIMM 5V/12V Input"]
-    DIN --> PMIC["On-DIMM PMIC"]
-    PMIC --> VDDN["VDD
-(DRAM Core)"]
-    PMIC --> VDDQN["VDDQ
-(DRAM I/O)"]
-
-    VRM --> SAPIN["VCCSA / VDD2 Pins"]
-    SAPIN --> SADOM["CPU SA Domain"]
-    SADOM --> IMC["IMC Logic /
-Training Engines"]
-    SADOM --> VDD2N["VDD2
-(IMC Voltage)"]
-
-    VRM --> PHYPIN["PHY TX Supply Pins"]
-    PHYPIN --> IVR["CPU IVR /
-Local Regulator"]
-    IVR --> IVRTX["IVR VDDQ TX"]
-    IVR --> PHYOUT["PHY Output Drivers
-(CA/DQ/DQS/CK)"]
-
-**Signal flow:**
-
-| Path | Flow |
-|---|---|
-| **Write** | CPU IMC → IVR VDDQ TX domain → CPU PHY TX drivers → channel → DIMM VDDQ domain → DRAM I/O → DRAM core VDD domain |
-| **Read** | DRAM core VDD → DRAM I/O VDDQ → channel → CPU PHY RX → IMC VDD2 |
-
 <p align="right"><a href="#top">Back to top</a></p>
 
 ---
