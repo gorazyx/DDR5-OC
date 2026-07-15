@@ -36,14 +36,14 @@ In-depth reference for pushing DDR5 memory.
 | Setting | Value | Notes |
 |---|---|---|
 | CPU Core/Ring Ratio | 47/44 | Remove CPU OC instability as a variable at first. |
-| VRM VCore/SVID VCore/SVID Cache | 1.2V | Prevent degrading. Final OC should never touch 1.35V+ anyway. |
+| VRM VCore/SVID VCore/SVID Cache | 1.20V | Prevent degrading. Final OC should never touch 1.35V+ anyway. |
 | Load-Line | LLC6 | LLC8 (no vdroop) if properly cooled. |
 | Unlimited ICCMAX | Disabled | Prevent degrading. |
 | ICCMAX | 400A | Prevent degrading. |
-| IA VR Voltage Limit | 1600 | Prevent degrading. |
-| VCCSA | 1.15V | Needs full train + cold boot when changing. VCCSA in 5mV steps is very important — has a sweet spot. |
+| IA VR Voltage Limit | 1600mV | Prevent degrading. |
+| VCCSA | 1.15V | Needs full train + cold boot when changing in big steps. Adjust VCCSA in 5mV steps to find the sweet-spot for 8000+ MT/s. |
 | VDD/VDDQ | 1.45/1.45V | Puts PMIC in OC-Mode (1.425V+ → different thermal management + voltage deltas). |
-| IVR VDDQ TX | 1.2V | Needs a sweet spot; optimal value depends on board/CPU/DIMM quality and IC type (A-Die vs M-Die). |
+| IVR VDDQ TX | 1.20V | Needs a sweet spot; optimal value depends on board/CPU/DIMM quality and IC type (A-Die vs M-Die). |
 | XMP | XMP I | |
 | Gear Mode | 2 | |
 | DRAM Reference Clock Ratio | Auto | Changing this from anything but Auto bugs training and needs a full CMOS reset. You can set 100:100 but never change it again. |
