@@ -4,7 +4,7 @@
 # Intel DDR5 Overclocking Guide
 
 
-In-depth reference for pushing DDR5 memory. Timing & voltage tables and theory.
+In-depth reference for pushing DDR5 memory.
 
 ![Memory](https://img.shields.io/badge/Memory-DDR5-blue)
 ![Level](https://img.shields.io/badge/Level-Advanced-red)
