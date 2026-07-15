@@ -124,32 +124,32 @@
 ### Example Procedure
 
 > [!IMPORTANT]
-> Only change **one variable at a time**.
+> Only change one thing at a time.
 
-**Step 1 — Frequency**
+**Step 1: Frequency**
 1. Push frequency.
 2. Increase VDD/VDDQ if there is headroom.
 3. Repeat until you reach the max frequency you reliably POST.
 3. Stress test for 5-10 minutes of y-cruncher VST. 
 4. Raise VDD/VDDQ if it errors, reduce frequency if no VDD/VDDQ headroom. 
 
-**Step 2 — Primaries**
+**Step 2: Primaries**
 1. Tighten primaries one at a time.
 2. Increase VDD/VDDQ if there is headroom.
 3. Repeat until you either can't POST or can't stabilize a specific timing.
 4. Adjust or raise VDD/VDDQ or reduce frequency.
 
-**Step 3 — Secondaries**
+**Step 3: Secondaries**
 1. Tighten secondaries.
 2. Adjust VDD first, then VDD2/IMC Voltage. (VDDQ and IVR VDDQ TX only affect a small subset of secondaries.)
 3. Repeat until you either can't POST or can't stabilize a specific timing.
 
-**Step 4 — Tertiaries** 
+**Step 4: Tertiaries** 
 1. Tighten tertiaries.
 2. Increase VDD if there is headroom.
 3. Repeat until you either can't POST or can't stabilize a specific timing.
 
-**Step 5 — Finalizing**
+**Step 5**
 1. Repeat the steps from before, depending on what your goal is.
 2. If you are stuck, start adjusting IVR VDDQ TX, VCCSA, and VDD2/IMC Voltage individually 
 3. Once you are satisfied with your overclock, run every stress test for as long as reasonable.
@@ -161,7 +161,7 @@
 ## Voltages
 
 > [!TIP]
-> Overkill cooling and raise voltages as much as *needed*.
+> Overkill cooling and raise voltages as much as needed.
 
 ### VDD
 Primary supply voltage for the DRAM die. The PMIC generates it on DIMM. 
@@ -178,7 +178,7 @@ Push this voltage decently.
 
 ### IVR VDDQ TX
 This rail powers the CPU PHY transmit drivers. It affects CPU write-path signal integrity. 
-Above 7800+ MT/s, CPU PHY drive signal integrity starts becoming a limiting factor. This voltage that directly relates to write-path eye opening. 
+Above 7800+ MT/s, CPU PHY drive signal integrity becomes a limiting factor. This voltage directly relates to write-path eye opening. 
 Raising it too much creates signal integrity issues. Adjust in 5mV steps.
 
 ### VCCSA
