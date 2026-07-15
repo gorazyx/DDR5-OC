@@ -200,8 +200,6 @@ You need especially good cooling to get especially good results, especially on D
 > Point the fan directly at the PMIC so gets direct airflow. This is especially important at high VDD/VDDQ. 
 > It's worth cooling your CPU with liquid metal via direct-die. RAM water-cooling also exists.
 
-<p align="right"><a href="#top">Back to top</a></p>
-
 
 <a id="refresh"></a>
 ## Refresh
