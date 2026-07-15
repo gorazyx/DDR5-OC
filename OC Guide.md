@@ -41,7 +41,7 @@
 | XMP | XMP I | |
 | Gear Mode | 2 | |
 | DRAM Reference Clock Ratio | Auto | Changing this from Auto after setting frequency bugs training. You can set 100:100 but never change it again. |
-| Maximus Tweak | Mode 2 | Mode 2 trains more aggressive. Mode 1 trains compatible. |
+| Maximus Tweak | Mode 2 | Mode 2 trains aggressive. Mode 1 trains compatible. |
 | DRAM Frequency | 7200 | |
 
 ### Timings
