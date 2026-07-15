@@ -5,10 +5,9 @@
 
 In-depth reference for pushing DDR5 memory.
 
-![Status](https://img.shields.io/badge/Status-Work%20in%20Progress-yellow)
 
 </div>
-
+![Status](https://img.shields.io/badge/Status-Work%20in%20Progress-yellow)
 <br/>
 
 > [!CAUTION]
