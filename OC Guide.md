@@ -8,10 +8,10 @@
 <br/>
 
 > [!CAUTION]
-> This guide pushes DRAM and platform voltages above default specification. Pushing SA or DRAM voltage too far can degrade your IMC or DIMMs over time. Even staying within the ranges in [Voltage and Timing Ranges](#voltage-and-timing-ranges) does not guarantee absolute safety.
+> This guide pushes voltages above default specification. Pushing IMC/SA/CPU or DRAM voltage too far will degrade your IMC or DIMMs. Even staying within the ranges in [Voltage and Timing Ranges](#voltage-and-timing-ranges) does not guarantee safety.
 
 > [!WARNING]
-> This guide is in its early phase. Contact me on discord (gorazyx) for corrections or additions to the guide.
+> This guide is still being made. Contact me on discord gorazyx for corrections or additions to the guide.
 
 <details>
 <summary><b>Table of Contents</b></summary>
@@ -30,7 +30,7 @@
 | Setting | Value | Notes |
 |---|---|---|
 | CPU Core/Ring Ratio | 47/44 | |
-| VRM VCore/SVID VCore/SVID Cache | 1.20V | Degradation above 1.35V. |
+| VRM VCore/SVID VCore/SVID Cache | 1.20V | 1.35V max. |
 | Load-Line | LLC6 | LLC8 if properly cooled. |
 | Unlimited ICCMAX | Disabled | |
 | ICCMAX | 400A | |
