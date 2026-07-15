@@ -50,22 +50,22 @@ Reference for pushing DDR5 memory.
 
 | Timing | Value | Notes |
 |---|---|---|
-| tCL | 38 | 36 when pushing higher VDD (1.55V+) at 8000+. Requires proper cooling. |
+| tCL | 38 | |
 | tRCD | 54 | tRCD is the hardest of the primaries to stabilize. |
-| tRCDWR | 54 | Try tRCD - 4 |
-| tRP | 54 | tRP can often go a bit lower than tRCD, but keep tRCD=tRP at first. |
-| tRAS | 82 | Set tRAS = tRCD + tCL. |
+| tRCDWR | 54 | |
+| tRP | 54 | Keep tRCD=tRP at first. |
+| tRAS | 82 | Set tRAS = tRCD + tRTP + 4. |
 | Command Rate | 2N | |
-| tREFI | 32767 | Very temperature sensitive. You need proper cooling to push tREFI to 65535 and above. |
-| tRFC / tRFC1 / tRFC2 | 800 | Latency (ns) = tRFC * 2000 / Data Rate. M-Die floor is much higher than A-Die floor because of density — 160ns for A-Die / 190ns for M-Die. |
-| tRFCpb / tRFCsb | 672 | Can set to tRFC - 30ns. |
-| tWR | 72 | Don't floor this one. Most firmware sets 48 as the limit, but APEX can set it to 24. These are way too tight anyway. |
-| tRRD_L | 12 | 8 as floor for M-Die. 4 can be tested for A-Die. |
-| tRRD_S | 8 | 8 as floor for M-Die. 4 can be tested for A-Die. |
-| tWTR_S | 8 | 4 as the absolute floor; can go as low as 2. |
-| tWTR_L | 24 | 8 as the absolute floor; can go as low as 6. |
+| tREFI | 32767 | Very temperature sensitive. |
+| tRFC / tRFC1 / tRFC2 | 800 | Latency (ns) = tRFC * 2000 / Data Rate. Set to 200ns |
+| tRFCpb / tRFCsb | 680 | Set to tRFC - 30ns. |
+| tWR | 72 | Most firmware sets 48 as the floor, on the z790 APEX you can program 24. |
+| tRRD_L | 12 | |
+| tRRD_S | 8 | |
+| tWTR_S | 8 | |
+| tWTR_L | 24 | |
 | tRTP | 24 | 12 is the absolute floor for DDR5. |
-| tFAW | 48 | 32 recommended as absolute floor. 16 (not recommended) worth trying on A-Die. |
+| tFAW | 48 | Aim for 32. 16 is worth trying on A-Die. |
 | tCWL | 36 | tCWL = tCL - 2. Can go lower, e.g. tCWL = tCL - 4. Also changes timing rules for tWRRD_SG/DG. |
 | tRDRD_SG | 16 | |
 | tRDRD_DG | 8 | |
@@ -170,7 +170,7 @@ Reference for pushing DDR5 memory.
 
 ### VDD
 Primary supply voltage for the DRAM die. The PMIC generates it on the DIMM. 
-Increasing it helps push igher frequency and almost every timing scales with it.
+Increasing it helps push higher frequency and almost every timing scales with it.
 Above 1.55V+ you need to ensure proper cooling.
 
 ### VDDQ
