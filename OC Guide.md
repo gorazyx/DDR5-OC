@@ -55,12 +55,12 @@ In-depth reference for pushing DDR5 memory.
 | Timing | Value | Notes |
 |---|---|---|
 | tCL | 38 | 36 when pushing higher VDD (1.55V+) at 8000+. Requires proper cooling. |
-| tRCD | 54 | Fail-safe value; will go lower after. |
-| tRCDW | 54 | Fail-safe value; will go lower after. |
-| tRP | 54 | Fail-safe value; will go lower after. |
-| tRAS | 82 | Set tRAS = tRCD 54 + tRTP 24 + 4 = tRAS 82. |
+| tRCD | 54 | tRCD is the hardest of the primaries to stabilize. |
+| tRCDWR | 54 | Unlike tRCD (read), tRCDWR can usually be floored to the register limit. |
+| tRP | 54 | tRP can often go a bit lower than tRCD, but keep tRCD=tRP at first. |
+| tRAS | 82 | Set tRAS = tRCD + tRTP + 4. |
 | Command Rate | 2N | |
-| tREFI | 32767 | tREFI = 8192*N - 1 where N is an integer. |
+| tREFI | 32767 | Very temperature sensitive. You need proper cooling to push tREFI to 65535 and above. |
 | tRFC / tRFC1 / tRFC2 | 800 | Latency (ns) = tRFC * 2000 / Data Rate. M-Die floor is much higher than A-Die floor because of density — 160ns for A-Die / 190ns for M-Die. |
 | tRFCpb / tRFCsb | 672 | Can set to tRFC - 30ns. |
 | tWR | 72 | Don't floor this one too hard. Most firmware sets 48 as the limit, but APEX can set it to 24. These are way too tight anyway. |
