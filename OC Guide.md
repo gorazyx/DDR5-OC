@@ -30,7 +30,7 @@
 | Setting | Value | Notes |
 |---|---|---|
 | CPU Core/Ring Ratio | 47/44 | |
-| VRM VCore/SVID VCore/SVID Cache | 1.20V | 1.35V max. |
+| VRM VCore/SVID VCore/SVID Cache | 1.25V | 1.35V max. |
 | Load-Line | LLC6 | LLC8 if properly cooled. |
 | Unlimited ICCMAX | Disabled | |
 | ICCMAX | 400A | |
