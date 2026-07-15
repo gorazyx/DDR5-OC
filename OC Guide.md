@@ -1,8 +1,7 @@
 <a id="top"></a>
 <div align="center">
 
-# Intel DDR5 Overclocking Guide
-
+# DDR5 Overclocking Guide
 
 In-depth reference for pushing DDR5 memory.
 
