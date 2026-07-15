@@ -258,6 +258,9 @@ tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes
 
 # Primary Timings
 
+> [!TIP] 
+> Use https://www.techpowerup.com/dram-latency/
+
 | Timing | Safe | Tight | XOC | Notes |
 |---|---|---|---|---|
 | tCL | 9.5ns | 9ns| 8ns | Scales well with VDD. Can go lower than tRCD/tRP. |
