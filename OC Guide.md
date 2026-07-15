@@ -3,10 +3,9 @@
 
 # DDR5 Overclocking Guide
 
-
+Reference for pushing DDR5 memory.
 
 </div>
-Reference for pushing DDR5 memory.
 
 <br/>
 
