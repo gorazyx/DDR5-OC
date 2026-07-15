@@ -259,7 +259,7 @@ tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes
 # Primary Timings
 
 > [!TIP] 
-> Use https://www.techpowerup.com/dram-latency/
+> Use this [DRAM Latency Calculator](https://www.techpowerup.com/dram-latency/) to convert to ns.
 
 | Timing | Safe | Tight | XOC | Notes |
 |---|---|---|---|---|
