@@ -192,18 +192,18 @@ Raising it too much creates signal integrity issues which occur fast starting fr
 
 ### VCCSA
 > [!WARNING]
-> Don't overdrive SA voltage. It degrades 13th/14th-gen IMCs quickly and is a common cause of instability — treat 1.30V as a reasonable upper limit.
-Mainly a supporting rail — affects memory training, interfaces around the IMC, and timing calibration/initialization logic. 
-Configuring it properly mainly helps with booting/training consistently, and matters more when trying to boot at higher frequencies. 
-If VCCSA is too low or misconfigured, you cannot boot at all. The ideal value is a sweet-spot.
+> Don't overdrive SA voltage. It degrades 13th/14th-gen IMCs quickly and miconfiguring it causes instability.
+VCCSA is mainly a supporting rail that affects memory training and timing calibration/initialization logic. 
+Above 7800+ MT/s, you need to find the sweet-spot or else you might not boot at all.
 
-Raising voltages creates stronger signal and let's transistors switch faster, but creates two main problems:
+
+Raising voltages helps signals, but creates two main problems:
 
 1. **Heat** changes impedance, which distorts the signal.
 2. **Faster signal edge** create more over- and undershoot.
 
 The first problem is solved with better cooling. 
-The second is solved by increasing termination resistances — but that drops signal strength across the resistance, which creates heat.
+The second is solved by increasing termination resistances - but that drops signal strength across the resistance, which creates heat.
 
 <p align="right"><a href="#top">Back to top</a></p>
 
