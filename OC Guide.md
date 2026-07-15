@@ -166,15 +166,6 @@ In-depth reference for pushing DDR5 memory. Timing & voltage tables and theory.
 
 <a id="voltages"></a>
 ## Voltages
-
-Raising voltages creates stronger signal and let's transistors switch faster, but creates two main problems:
-
-1. **Heat** — changes impedance, which distorts the signal.
-2. **Faster signal edge** — more over- and undershoot.
-
-The first problem is solved with better cooling. 
-The second is solved by increasing termination resistances — but that drops signal strength across the resistance, which creates heat.
-
 > [!TIP]
 > Go overkill on cooling and raise voltages only as much as you *need*.
 
@@ -202,6 +193,14 @@ Raising it too much creates signal integrity issues which occur fast starting fr
 Mainly a supporting rail — affects memory training, interfaces around the IMC, and timing calibration/initialization logic. 
 Configuring it properly mainly helps with booting/training consistently, and matters more when trying to boot at higher frequencies. 
 If VCCSA is too low or misconfigured, you cannot boot at all. The ideal value is a sweet-spot.
+
+Raising voltages creates stronger signal and let's transistors switch faster, but creates two main problems:
+
+1. **Heat** changes impedance, which distorts the signal.
+2. **Faster signal edge** create more over- and undershoot.
+
+The first problem is solved with better cooling. 
+The second is solved by increasing termination resistances — but that drops signal strength across the resistance, which creates heat.
 
 ### Topology of Voltage Rails
 
