@@ -193,6 +193,7 @@ Raising it too much creates signal integrity issues which occur fast starting fr
 ### VCCSA
 > [!WARNING]
 > Don't overdrive SA voltage. It degrades 13th/14th-gen IMCs quickly and miconfiguring it causes instability.
+
 VCCSA is mainly a supporting rail that affects memory training and timing calibration/initialization logic. 
 Above 7800+ MT/s, you need to find the sweet-spot or else you might not boot at all.
 
