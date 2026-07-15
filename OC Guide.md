@@ -230,21 +230,14 @@ tREFI is the average refresh interval. Since DDR5 introduced postponed refreshes
 
 ## Notes
 
-### Technical Notes
-
 - DDR5's on-die ECC corrects some errors.
 - You are limited by your current CPU bin and thermals.
 - DDR5 is very temperature sensitive.
 - You need to validate across multiple states: cold boots, warm boots, retrains after failed training, and stress tests. This makes DDR5 OC more complex than DDR4 OC.
-
-### Tips
-
 - Log every change you make with notes by hand.
 - Increment one atomic step at a time.
 - Save as many OC profiles as possible.
 - Note down Q-codes that happen during training.
-
-<p align="right"><a href="#top">Back to top</a></p>
 
 <a id="voltage-and-timing-ranges"></a>
 ## Voltage and Timing Ranges
