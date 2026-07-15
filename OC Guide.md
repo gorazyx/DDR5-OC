@@ -19,6 +19,7 @@ In-depth reference for pushing DDR5 memory.
 > [!WARNING]
 > This guide is in its early phase. Additions or corrections are appreciated, contact me on Discord gorazyx.
 
+<details>
 <summary><b>Table of Contents</b></summary>
 <br/>
 
@@ -27,6 +28,7 @@ In-depth reference for pushing DDR5 memory.
 - [Voltages](#voltages)
 - [Voltage and Timing Ranges](#voltage-and-timing-ranges)
 
+</details>
 
 <a id="baseline-memory-oc"></a>
 ## Baseline Memory OC
