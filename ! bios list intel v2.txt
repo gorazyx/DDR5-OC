@@ -1,0 +1,1057 @@
+list v2:
+
+BCLK Trimmer
+*[01]Disabled
+
+Intel(R) Adaptive Boost Technology
+*[01]Disabled
+
+ASUS MultiCore Enhancement
+*[02]Enabled  Remove All limits
+
+BCLK Frequency : DRAM Frequency Ratio
+*[00]Auto	
+
+Memory Controller : DRAM Frequency Ratio
+*[02]1:2
+
+Performance Core Ratio
+*[01]Sync All Cores
+
+Ring Down Bin
+*[01]Disabled
+
+BCLK Aware Adaptive Voltage
+*[01]Disabled
+
+AVX2
+*[02]Enabled
+
+AVX512
+*[02]Enabled
+
+AVX2 Ratio Offset to per-core Ratio Limit
+*[01]User Specify
+
+AVX2 Ratio Offset
+Value	=<0>
+
+Voltage Monitor
+*[00]Die Sense
+
+CPU Input Voltage Load-line Calibration
+*[03]Level 3
+
+CPU Load-line Calibration
+*[08]Level 8
+
+CPU Current Capability
+*[05]140%
+
+CPU Current Reporting
+*[00]Auto	
+
+Core Voltage Suspension
+*[02]Disabled
+
+CPU VRM Switching Frequency	
+*[01]Manual
+
+Fixed CPU VRM Switching Frequency(KHz)
+Value	=<800>
+
+VRM Spread Spectrum
+*[01]Disabled
+
+CPU Power Duty Control
+*[02]Extreme
+
+CPU Power Phase Control
+*[03]Extreme
+
+CPU VRM Thermal Control
+*[01]Disabled
+
+Regulate Frequency by above Threshold
+*[02]Disabled
+
+Unlimited ICCMAX
+*[01]Disabled
+
+Inverse Temperature Dependency Throttle
+*[01]Disabled
+
+Cache Dynamic OC Switcher
+*[00]Disabled
+
+TVB Voltage Optimizations
+*[01]Disabled
+
+Enhanced TVB
+*[01]Disabled
+
+TVB Ratio Clipping
+*[01]Disabled
+
+Overclocking TVB
+*[01]Disabled
+
+Runtime BCLK OC
+*[01]Disabled
+
+BCLK Spread Spectrum
+*[01]Disabled
+
+PCIE/DMI Spread Spectrum
+*[01]Disabled
+
+Realtime Memory Timing
+*[01]Enabled
+
+UnderVolt Protection
+*[00]Disabled
+
+Maximus Tweak
+*[02]Mode 2
+
+Dynamic Memory Boost
+*[00]Disabled	
+
+Realtime Memory Frequency
+*[00]Disabled	
+
+PCI Express Native Power Management
+*[00]Disabled	
+
+Native ASPM
+*[00]Disabled
+
+DMI Link ASPM Control
+*[00]Disabled
+
+ASPM
+*[00]Disabled
+
+L1 Substates
+*[00]Disabled
+
+DMI ASPM
+*[00]Disabled
+
+DMI Gen3 ASPM
+*[00]Disabled
+
+PEG - ASPM
+*[00]Disabled
+
+PCI Express Clock Gating
+*[00]Disabled
+
+D3 Setting for Storage
+*[00]Disabled
+
+Low Power S0 Idle Capability
+*[00]Disabled
+
+PUIS Enable
+*[00]Disabled
+
+EC Notification
+*[00]Disabled
+
+EC CS Debug Light
+*[00]Disabled
+
+EC Low Power Mode
+*[00]Disabled	
+
+PCI Delay Optimization
+*[00]Disabled
+
+MSI enabled
+*[01]Enabled
+
+PEP CPU
+*[00]Disabled
+
+PEP Graphics
+*[00]Disabled
+
+PEP IPU
+*[00]Disabled
+
+PEP GNA
+*[00]Disabled
+
+PEP SATA
+*[00]No Constraint	
+
+PEP enumerated SATA ports
+*[00]Disabled
+
+PEP PCIe Storage
+*[00]No Constraint	
+
+PEP PCIe LAN
+*[00]No Constraint
+
+PEP PCIe WLAN
+*[00]No Constraint	
+
+PEP PCIe GFX
+*[00]No Constraint	
+
+PEP PCIe Other
+*[00]No Constraint	
+
+PEP UART
+*[00]Disabled
+
+PEP I2C0
+*[00]Disabled
+
+PEP I2C1
+*[00]Disabled
+
+PEP I2C2
+*[00]Disabled
+
+PEP I2C3
+*[00]Disabled
+
+PEP I2C4
+*[00]Disabled
+
+PEP I2C5
+*[00]Disabled
+
+PEP I2C6
+*[00]Disabled
+
+PEP I2C7
+*[00]Disabled
+
+PEP SPI
+*[00]Disabled
+
+PEP XHCI
+*[00]Disabled
+
+PEP Audio
+*[00]No Constraint	
+
+PEP CSME
+*[00]Disabled
+
+PEP HECI3
+*[00]Disabled
+
+PEP LAN(GBE)
+*[00]Disabled
+
+PEP THC0
+*[00]Disabled
+
+PEP THC1
+*[00]Disabled
+
+PEP TCSS
+*[00]Disabled
+
+PEP VMD
+*[00]Disabled
+
+PEP EMMC
+*[00]Disabled
+
+Connectivity mode (Wi-Fi & Bluetooth)
+*[00]Disabled
+
+Wi-Fi Core
+*[00]Disabled
+
+BT Core
+*[00]Disabled
+
+RFI Mitigation
+*[00]Disabled
+
+DLVR RFI Mitigation
+*[00]Disabled
+
+Discrete Bluetooth Interface
+*[00]Disabled
+
+Wireless CNV Config Device
+*[00]Disabled
+
+WWAN Reset Workaround
+*[00]Disabled
+
+C6DRAM
+*[00]Disabled
+
+Hardware Prefetcher
+*[01]Enabled
+
+Adjacent Cache Line Prefetch
+*[01]Enabled
+
+Intel (VMX) Virtualization Technology
+*[00]Disabled
+
+PECI
+*[00]Disabled
+
+AVX
+*[00]Enabled
+
+Hyper-Threading
+*[00]Disabled
+
+AP threads Idle Manner
+*[03]RUN Loop
+
+AES
+*[01]Enabled
+
+Machine Check
+*[00]Disabled
+
+MonitorMWait
+*[00]Disabled
+
+Intel Trusted Execution Technology
+*[00]Disabled	
+
+Intel(R) Speed Shift Technology Interrupt Control
+*[00]Disabled
+
+Intel(R) SpeedStep(tm)
+*[00]Disabled
+
+Race To Halt (RTH)
+*[00]Disabled	
+
+Intel(R) Speed Shift Technology
+*[00]Disabled
+
+Intel(R) Turbo Boost Max Technology 3.0
+*[01]Enabled
+
+Per Core P State OS control mode
+*[00]Disabled
+
+HwP Autonomous Per Core P State
+*[00]Disabled
+
+HwP Autonomous EPP Grouping
+*[00]Disabled
+
+HwP Fast MSR Support
+*[00]Disabled
+
+HDC Control
+*[00]Disabled
+
+CPU C-states
+*[00]Disabled
+
+Enhanced C-states
+*[00]Disabled
+
+C-State Auto Demotion
+*[00]Disabled
+
+C-State Un-demotion
+*[00]Disabled
+
+Package C-State Demotion
+*[00]Disabled
+
+Package C-State Un-demotion
+*[00]Disabled
+
+state Pre-Wake
+*[00]Disabled
+
+Package C State Limit
+*[00]C0/C1	
+
+Time Unit
+*[00]1 ns
+
+Latency
+Value	=<0>
+
+Time Unit
+*[00]1 ns
+
+Latency
+Value	=<0>
+
+Time Unit
+*[00]1 ns
+
+Latency
+Value	=<0>
+
+Time Unit
+*[00]1 ns
+
+Latency
+Value	=<0>
+
+Time Unit
+*[00]1 ns
+
+Latency
+Value	=<0>
+
+Thermal Monitor 
+*[00]Disabled
+
+Interrupt Redirection Mode Selection
+*[01]Round robin
+
+EC Polling Period
+Value	=<255>
+
+Energy Performance Gain
+*[00]Disabled
+
+Energy Efficient P-state
+*[00]Disabled
+
+Energy Efficient Turbo
+*[00]Disabled
+
+FIVR Spread Spectrum
+*[00]Disabled
+
+RFI Spread Spectrum
+*[00]0.5%
+
+Power Down Mode
+*[00]No Power Down
+
+Page Close Idle Timeout
+*[01]Disabled
+
+Memory Scrambler
+*[00]Disabled
+
+VT-d
+*[00]Disabled
+
+Thermal Device (B0:D4:F0)
+*[00]Disabled
+
+Cpu CrashLog (Device 10)
+*[00]Disabled
+
+WRC Feature
+*[01]Enabled
+
+RC6(Render Standby)
+*[00]Disabled
+
+Internal Graphics
+*[00]Disabled
+
+Memory Thermal Management
+*[00]Disabled
+
+DDR PowerDown and idle counter
+*[00]PCODE
+
+For LPDDR Only: DDR PowerDown and idle counter
+*[00]PCODE
+
+SelfRefresh Enable
+*[00]Disabled
+
+PCIE Resizable BAR Support
+*[01]Enabled	
+
+PCI Express Power Gating
+*[00]Disabled	
+
+L1 Substates
+*[00]Disabled	
+
+ACS
+*[00]Disabled
+
+PTM
+*[01]Enabled
+
+DPC
+*[00]Disabled
+
+Multi-VC
+*[00]Disabled
+
+EDPC
+*[00]Disabled
+
+URR
+*[00]Disabled
+
+FER
+*[00]Disabled
+
+NFER
+*[00]Disabled
+
+CER
+*[00]Disabled
+
+CTO
+*[00]Disabled
+
+SEFE
+*[00]Disabled
+
+SENFE
+*[00]Disabled
+
+SECE
+*[00]Disabled
+
+PME SCI
+*[00]Disabled
+
+Hot Plug
+*[00]Disabled
+
+Advanced Error Reporting
+*[00]Disabled
+
+Enable ClockReq Messaging
+*[00]Disabled
+
+LTR
+*[01]Enabled
+
+Snoop Latency Override
+*[01]Manual
+
+Snoop Latency Value
+Value	=<0>
+
+Snoop Latency Multiplier
+*[00]1 ns	
+
+Non Snoop Latency Override
+*[01]Manual
+
+Non Snoop Latency Value
+Value	=<0>
+
+Non Snoop Latency Multiplier
+*[00]1 ns	
+
+Force LTR Override
+*[00]Disabled	
+
+LTR Lock
+*[00]Disabled	
+
+PCI Express Clock Gating
+*[00]Disabled
+
+PCI Express Power Gating
+*[00]Disabled
+
+LAN Wake From DeepSx
+*[00]Disabled
+
+Wake on LAN Enable
+*[00]Disabled
+
+PS_ON Enable
+*[00]Disabled
+
+Legacy IO Low Latency
+*[01]Enabled
+
+PCH Cross Throttling
+*[00]Disabled
+
+PCH Energy Reporting
+*[00]Disabled
+
+LPM S0i2.0
+*[00]Disabled
+
+LPM S0i2.1
+*[00]Disabled
+
+LPM S0i3.0
+*[00]Disabled
+
+LPM S0i2.2
+*[00]Disabled
+
+LPM S0i3.2
+*[00]Disabled
+
+LPM S0i3.3
+*[00]Disabled
+
+LPM S0i3.4
+*[00]Disabled
+
+Pcie Pll SSC
+*[FE]Disable
+
+Enable 8254 Clock Gate
+*[00]Disabled
+
+OS IDLE Mode
+*[00]Disabled
+
+S0ix Auto Demotion
+*[00]Disabled
+
+USB Overcurrent
+*[00]Disabled
+
+USB Overcurrent Lock
+*[00]Disabled
+
+SATA Controller(s)
+*[00]Disabled
+
+Aggressive LPM Support
+*[00]Disabled	
+
+L1 Low
+*[00]Disabled	
+
+Hot Plug
+*[00]Disabled
+
+Advanced Error Reporting
+*[FF]Disabled
+
+ClkReq for Clock0
+*[FF]Disabled
+
+ClkReq for Clock1
+*[FF]Disabled
+
+ClkReq for Clock2
+*[FF]Disabled
+
+ClkReq for Clock3
+*[FF]Disabled
+
+ClkReq for Clock4
+*[FF]Disabled
+
+ClkReq for Clock5
+*[FF]Disabled
+
+ClkReq for Clock6
+*[FF]Disabled
+
+ClkReq for Clock7
+*[FF]Disabled
+
+ClkReq for Clock8
+*[FF]Disabled
+
+ClkReq for Clock9
+*[FF]Disabled
+
+ClkReq for Clock10
+*[FF]Disabled
+
+ClkReq for Clock11
+*[FF]Disabled
+
+ClkReq for Clock12
+*[FF]Disabled
+
+ClkReq for Clock13
+*[FF]Disabled
+
+ClkReq for Clock14
+*[FF]Disabled
+
+ClkReq for Clock15
+*[FF]Disabled
+
+ClkReq for Clock16
+*[FF]Disabled
+
+ClkReq for Clock17
+*[FF]Disabled
+
+Active LTR
+Value	=80008000
+
+Idle LTR
+Value	=80008000
+
+Active LTR
+Value	=80008000
+
+Idle LTR
+Value	=80008000
+
+RTC Memory Lock
+*[[00]Disabled
+
+BIOS Lock
+*[00]Disabled
+
+I2C0 Controller
+*[00]Disabled
+
+I2C1 Controller
+*[00]Disabled
+
+I2C2 Controller
+*[00]Disabled
+
+I2C3 Controller
+*[00]Disabled
+
+Power Gating
+*[00]Disabled
+
+ISH Controller
+*[00]Disabled
+
+Thermal Throttling Level
+*[00]Manual
+
+DMI Thermal Setting
+*[00]Manual
+
+Thermal Sensor 0 Width
+*[04]x16
+
+Thermal Sensor 1 Width
+*[04]x16
+
+Thermal Sensor 2 Width
+*[04]x16
+
+Thermal Sensor 3 Width
+*[04]x16
+
+SATA Thermal Setting
+*[00]Manual
+
+T1 Multipler
+*[00]Disabled
+
+T2 Multipler
+*[00]Disabled
+
+T3 Multipler
+*[00]Disabled
+
+T1 Multipler
+*[00]Disabled
+
+T2 Multipler
+*[00]Disabled
+
+T3 Multipler
+*[00]Disabled
+
+ADR enable
+*[02]Disabled
+
+Host Partition Reset ADR Enable
+*[02]Disabled
+
+Enable All Thermal Functions
+*[00]Disabled
+
+Bi-directional PROCHOT#
+*[00]Disabled
+
+PROCHOT Response
+*[00]Disabled
+
+Active Trip Point 0
+*[7F]Disabled
+
+Active Trip Point 1
+*[7F]Disabled
+
+Passive Trip Point
+*[7F]Disabled
+
+Passive TC1 Value
+Value	=<1>
+
+Passive TC2 Value
+Value	=<1>
+
+Passive TSP Value
+Value	=<32>
+
+Active Trip Points
+*[00]Disabled
+
+Passive Trip Points
+*[00]Disabled
+
+Critical Trip Points
+*[00]Disabled
+
+Processor Thermal Device
+*[00]Disabled
+
+Intel(R) Dynamic Tuning Technology Configuration
+Value	=<8>
+
+FAN1 Device
+*[00]Disabled	
+
+FAN2 Device
+*[00]Disabled
+
+FAN3 Device
+*[00]Disabled
+
+Charger participant
+*[00]Disabled
+
+Power participant
+*[00]Disabled
+
+Battery Participant
+*[00]Disabled
+
+PPCC Object
+*[01]Disabled	
+
+ARTG Object
+*[01]Disabled
+
+PMAX Object
+*[01]Disabled
+
+PMAX Device
+*[00]Disabled
+
+PMAX Audio codec
+*[01]Disabled
+
+PMAX WF Camera
+*[01]Disabled
+
+PMAX UF Camera
+*[01]Disabled
+
+PMAX Flash device
+*[01]Disabled
+
+RP08 D3 cold Support
+*[00]Disabled
+
+Rp08 Wake Rework Support
+*[00]Disabled
+
+Scan Matrix Keyboard Support
+*[00]Disabled
+
+Power Loss Notification Feature
+*[00]Disabled
+
+ACPI D3Cold Support
+*[00]Disabled
+
+P-state Capping
+*[00]Disabled
+
+ZPODD
+*[00]Disabled
+
+WWAN
+*[00]Disabled
+
+DTBT RTD3 Enable
+*[00]Disabled
+
+SA PLL Frequency Override
+*[00]3200 MHz	
+
+Thermal Velocity Boost
+*[00]Disabled
+
+TVB Voltage Optimizations
+*[00]Disabled
+
+Enhanced Thermal Velocity Boost
+*[00]Disabled
+
+Ring Down Bin
+*[00]Disabled
+
+PCIE Tunneling over USB4
+*[00]Disabled
+
+Discrete Thunderbolt(TM) Support
+*[00]Disabled
+
+Wake From Thunderbolt(TM) Devices
+*[00]Disabled
+
+ITBT RTD3
+*[00]Disabled
+
+ITBT Root Port 0
+*[00]Disabled
+
+ITBT Root Port 1
+*[00]Disabled
+
+ITBT Root Port 3
+*[00]Disabled
+
+DTBT Go2Sx Command
+*[00]Disabled
+
+Windows 10 Thunderbolt support
+*[00]Disabled
+
+IGD VTD Enable
+*[00]Disabled
+
+IPU VTD Enable
+*[00]Disabled
+
+IOP VTD Enable
+*[00]Disabled
+
+JTAG C10 Power Gate
+*[01]Disabled
+
+Three Strike Counter
+*[01]Disabled
+
+CrashLog Feature
+*[00]Disabled
+
+CrashLog On All Reset
+*[00]Disabled
+
+CrashLog PMC Rearm
+*[00]Disabled
+
+CrashLog PMC Clear
+*[00]Disabled
+
+CrashLog Cdie Rearm
+*[00]Disabled
+
+CrashLog Cdie Clear
+*[00]Disabled
+
+CrashLog GPRs
+*[00]Disabled
+
+Enable Hibernation
+Value	=0	
+
+ACPI Sleep State
+*[00]Suspend Disabled
+
+PCI-X Latency Timer
+*[20]32 PCI Bus Clocks	
+
+Above 4G Decoding
+*[01]Enabled
+
+Resize BAR Support
+*[01]Enabled
+
+Relaxed Ordering
+*[01]Enabled
+
+No Snoop
+*[00]Disabled
+
+Maximum Payload
+*[37]Auto
+
+Maximum Read Request
+*[37]Auto
+
+ASPM Support
+*[00]Disabled
+
+Extended Synch
+*[00]Disabled
+
+LTR Mechanism Enable
+*[01]Enabled
+
+Hardware Autonomous Width
+*[01]Disabled
+
+Hardware Autonomous Speed
+*[01]Disabled
+
+BIOS Hot-Plug Support
+*[00]Disabled
+
+PCI Buses Padding
+*[00]Disabled
+
+I/O Resources Padding
+*[00]Disabled
+
+MMIO 32 bit Resources Padding
+*[00]Disabled
+
+PFMMIO 32 bit Resources Padding
+*[00]Disabled
+
+PFMMIO 64 bit Resources Padding
+*[00]Disabled
+
+Legacy USB Support
+*[02]Auto
+
+XHCI Hand-off
+*[01]Enabled
+
+IPv4 PXE Support
+*[00]Disabled
+
+IPv6 PXE Support
+*[00]Disabled
+
+Wi-Fi Controller
+*[00]Disabled
+
+Bluetooth Controller
+*[00]Disabled
+
+ASMedia Storage Controller
+*[00]Disabled
+
+CPU Temperature LED Switch
+*[00]Disabled
+
+PS2 Devices Support
+*[00]Disabled
+
+I2C Devices Support
+*[00]Disabled
+
+Download & Install ARMOURY CRATE app
+*[00]Disabled
+
+Download & Install MyASUS service & app
+*[00]Disabled
